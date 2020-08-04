@@ -27,7 +27,7 @@ The `addItemToCart` method takes 2 paramaters, itemId and $amount. **Amount is a
 
 If the user clicks on an item that's already in the cart, the amount will automatically be incremented by 1.
 
-If you specify an amount, the existing amount will be updated to the amount given not not incremented.
+If you specify an amount, the existing amount will be updated to the amount given and not incremented by 1.
 
 ```php
 $cart->addItemToCart($itemId, $amount);
@@ -46,9 +46,9 @@ $allCartItems = $cart->grabAllItems();
 ```php
 $allCartItems = $cart->grabAllItems();
 
-foreach ($allCartItem as $key => $cartItem) {
+foreach ($allCartItems as $key => $cartItem) {
   
-  echo "Amount: " . $allCartItem[$key]['amount'] . " ItemId: " . $allCartItem[$key]['itemId'];
+  echo "Amount: " . $allCartItems[$key]['amount'] . " ItemId: " . $allCartItems[$key]['itemId'];
 }    
 ```
 
@@ -68,4 +68,4 @@ $cart->grabItem($itemId);
 
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)
