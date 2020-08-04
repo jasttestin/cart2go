@@ -9,5 +9,11 @@
         ]
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "composer dump-autoload"
+        ]
+    }
 }
+
