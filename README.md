@@ -45,3 +45,5 @@ foreach ($allCartItem as $key => $cartItem) {
   echo "Amount: " . $allCartItem[$key]['amount'] . " ItemId: " . $allCartItem[$key]['itemId'];
 }    
 ```
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
