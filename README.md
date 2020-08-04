@@ -45,5 +45,21 @@ foreach ($allCartItem as $key => $cartItem) {
   echo "Amount: " . $allCartItem[$key]['amount'] . " ItemId: " . $allCartItem[$key]['itemId'];
 }    
 ```
+
+### Reset a cart:
+This will remove all items within the cart.
+
+```php
+$cart->reset();
+```
+
+### Grab single item:
+This will grab only the selected item from the cart.
+
+```php
+$cart->grabItem($itemId);
+```
+
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
