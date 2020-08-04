@@ -5,9 +5,15 @@ This is a simple cart system made for PHP that will allow you to save item IDs t
 
 Use composer to install cart2go. 
 
-```php
+```terminal
 composer require noahenrik/cart2go
 ```
+
+Make sure to update your autoloader. For composer:
+```terminal
+composer dump-autoload
+```
+
 
 ## Usage
 
@@ -45,5 +51,21 @@ foreach ($allCartItem as $key => $cartItem) {
   echo "Amount: " . $allCartItem[$key]['amount'] . " ItemId: " . $allCartItem[$key]['itemId'];
 }    
 ```
+
+### Reset a cart:
+This will remove all items within the cart.
+
+```php
+$cart->reset();
+```
+
+### Grab single item:
+This will grab only the selected item from the cart.
+
+```php
+$cart->grabItem($itemId);
+```
+
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
