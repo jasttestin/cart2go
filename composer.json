@@ -5,7 +5,7 @@
     "require": {},
     "autoload": {
         "classmap": [
-            "php/shoppingCart.php"
+            "shop2go/shoppingCart.php"
         ]
     }
 }

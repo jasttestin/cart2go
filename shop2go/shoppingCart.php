@@ -1,7 +1,5 @@
 <?php
 
-// require __DIR__ . '/../vendor/autoload.php';
-
 namespace Cart;
 
 
@@ -27,26 +25,31 @@ class Cart {
     /*
         * Add a new item to the cart.
     */
-    public function addItemToCart($itemId) {
+    public function addItemToCart($itemId, $amount  = null) {
 
         /* 
             We go through all the items within the associative array and check if the given itemId is found.
             If we do find a value, we increment the amount by 1.
 
             nthPositionInAssociativeArray = The associative array position.
-            cartItem = The associative's array, array. This is an array.
+            cartItem = The associative array's, array. This is an array.
         */
         foreach ($_SESSION['cart'] as $nthPositionInAssociativeArray => $cartItem) {
     
 
             if($cartItem["itemId"] == $itemId) { 
-    
-                $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] =  $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] + 1;
+
+                if ($amount == null) { // no amount given, we increment it by one
+
+                    $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] =  $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] + 1;
+                } else { // amount was given, we replace the given amount with the amount given.
+                    
+                    $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] =  $amount;
+                }        
+
                 return;
             }
         }    
-
-        echo "I didn't find your item D:";
     
         // if the item was not already in it, we create a new one.
         $itemId = $_POST['itemId'];
@@ -62,14 +65,10 @@ class Cart {
 
 
     public function grabItem($itemId) {
-
-        if($_SESSION['cart'])
         
         foreach ($_SESSION['cart'] as $nthPositionInAssociativeArray => $cartItem) {
     
             if($cartItem["itemId"] == $itemId) { 
-
-                
 
                 return $_SESSION['cart'][$nthPositionInAssociativeArray];
             }
