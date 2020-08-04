@@ -25,7 +25,7 @@ class Cart {
     /*
         * Add a new item to the cart.
     */
-    public function addItemToCart($itemId, $amount = null) {
+    public function addItemToCart($itemId, $amount  = null) {
 
         /* 
             We go through all the items within the associative array and check if the given itemId is found.
@@ -35,27 +35,25 @@ class Cart {
             cartItem = The associative array's, array. This is an array.
         */
         foreach ($_SESSION['cart'] as $nthPositionInAssociativeArray => $cartItem) {
-            
+    
 
-            if($_SESSION['cart'][$nthPositionInAssociativeArray]["itemId"] == $itemId) { 
-
-                echo "Found the itemId";
+            if($cartItem["itemId"] == $itemId) { 
 
                 if ($amount == null) { // no amount given, we increment it by one
 
-            
                     $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] =  $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] + 1;
-                    return;
                 } else { // amount was given, we replace the given amount with the amount given.
                     
-              
                     $_SESSION['cart'][$nthPositionInAssociativeArray]['amount'] =  $amount;
-                    return;
                 }        
+
+                return;
             }
         }    
-
-        // Didn't find. We insert a new array into our array with the amount being 1.
+    
+        // if the item was not already in it, we create a new one.
+        $itemId = $_POST['itemId'];
+        
         array_push($_SESSION['cart'], ["itemId" => (int)$itemId, "amount" => 1]);
     
     }
@@ -81,6 +79,20 @@ class Cart {
     public function reset() {
 
         unset($_SESSION["cart"]);
+    }
+
+
+    public function removeItem($itemId) {
+
+
+        foreach ($_SESSION['cart'] as $nthPositionInAssociativeArray => $cartItem) {
+    
+            if($cartItem["itemId"] == $itemId) { 
+
+               
+                unset($_SESSION['cart'][$nthPositionInAssociativeArray]);
+            }
+        }    
     }
 }
 
