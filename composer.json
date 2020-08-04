@@ -5,7 +5,7 @@
     "require": {},
     "autoload": {
         "classmap": [
-            "shop2go/shoppingCart.php"
+            "cart2go/shoppingCart.php"
         ]
     },
     "minimum-stability": "dev",
