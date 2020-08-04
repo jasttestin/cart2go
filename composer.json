@@ -1,0 +1,11 @@
+{
+    "name": "noahenrik/cart2go",
+    "type": "library",
+    "description": "A simple shopping cart.",
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "php/shoppingCart.php"
+        ]
+    }
+}
