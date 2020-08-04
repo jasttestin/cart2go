@@ -5,9 +5,15 @@ This is a simple cart system made for PHP that will allow you to save item IDs t
 
 Use composer to install cart2go. 
 
-```php
+```terminal
 composer require noahenrik/cart2go
 ```
+
+Make sure to update your autoloader. For composer:
+```terminal
+composer dump-autoload
+```
+
 
 ## Usage
 
